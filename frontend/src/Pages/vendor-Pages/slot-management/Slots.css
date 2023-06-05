@@ -1,0 +1,83 @@
+.slot{
+     /* padding: 0.5rem 3.5rem; */
+  color: var(--black);
+  background: linear-gradient(
+    106.37deg,
+    #81cbb0 29.63%,
+    #b6e6dd 51.55%,
+    #5af0c5 90.85%
+  );
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.slotGlass{
+ display: grid;
+  height: 97%;
+  width: 97%;
+  background: var(--glass);
+  border-radius: 2rem;
+  gap: 36px;
+  overflow: hidden;
+}
+
+
+.slotContainer1{
+    height: 10vh;
+    margin: 40px 40px  0 40px ;
+    gap:20px;
+    padding: 20px;
+    
+}
+
+.addsContainer2{
+    height: 30vh;
+    margin:0 40px;
+    gap:20px;
+    padding: 20px;
+    
+}
+
+.labelAdd{
+    font-size: 18px;
+    color: #0c523e;
+     width: 200px;
+     
+}
+
+.inputAdd{
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.yesSlotButton{
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+}
+
+.textWrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+.textWrap{
+  display: flex;
+  flex-direction: row;
+}
+
+form1{
+  display: flex;
+  align-items: center;
+}

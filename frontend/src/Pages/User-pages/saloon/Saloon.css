@@ -1,0 +1,154 @@
+
+.saloonContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.saloonWrapper{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.bookNow{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background-color: rgb(85, 14, 151);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+
+.saloonName{
+    font-size: 24px;
+}
+
+.saloonAddress{
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.saloonDist{
+    font-weight: 500px;
+    color: green;
+}
+
+.saloonImgWrapper{
+    width: 33%;
+}
+
+
+.saloonImgs{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.SaloonImg{
+    width: 100%;
+    object-fit: cover;
+}
+
+.saloonInfo{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.saloonText{
+    flex:3
+}
+
+.saloonPrice{
+    flex:1;
+    background-color: #94e5db;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.saloonPhead{
+    font-size: 15px;
+}
+
+.bookSlot{
+     background-color: rgb(86, 40, 130);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+/* Small devices (up to 768px) */
+@media only screen and (max-width: 768px) {
+    .saloonWrapper {
+        gap: 5px;
+    }
+    .saloonImgWrapper {
+        width: 100%;
+    }
+    .saloonInfo {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .saloonText {
+        flex: unset;
+    }
+    .saloonPrice {
+        padding: 10px;
+        gap: 10px;
+    }
+}
+
+/* Medium devices (768px to 992px) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .saloonWrapper {
+        max-width: 768px;
+        padding-bottom: 30px;
+    }
+}
+
+/* Large devices (992px and up) */
+@media only screen and (min-width: 992px) {
+    .saloonWrapper {
+        max-width: 1024px;
+    }
+    .saloonInfo {
+        gap: 30px;
+    }
+    .saloonPrice {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bookNow {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bookNow {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

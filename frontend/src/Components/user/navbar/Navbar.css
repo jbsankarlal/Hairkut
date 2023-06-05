@@ -1,0 +1,74 @@
+.navbar{
+    height: 50px;
+    background-color: #08A693;
+    display: flex;
+    justify-content: center;
+}
+
+.navContainer{
+    width: 100%;
+    max-width: 1224px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    padding-top: 10px;
+    font-weight: 500px;
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+.navButton {
+  font-family: 'Roboto', sans-serif !important;
+  margin: 10px !important;
+  padding: 10px 20px !important;
+  border-radius: 20px !important;
+  background-color: #074a43 !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  border: none;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.navButton:hover {
+  background-color: #0d8c7e !important;
+}
+
+.logoutButton{
+  font-family: 'Roboto', sans-serif !important;
+  margin: 10px !important;
+  padding: 10px 20px !important;
+  border-radius: 20px !important;
+  background-color: #074a43 !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  border: none;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .navContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 10px 0;
+  }
+
+  .navButton {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif !important;
+    font-size: 18px !important;
+}
+
+.paymentScreen{
+height: 100vh !important;
+overflow-y: hidden;
+}
+
+.userpay{
+     /* padding: 0.5rem 3.5rem; */
+  color: var(--black);
+  background: linear-gradient(
+    106.37deg,
+    #81cbb0 29.63%,
+    #b6e6dd 51.55%,
+    #5af0c5 90.85%
+  );
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userpayGlass{
+    display: flex;
+    justify-content: center;
+  height: auto;
+  width: auto;
+  background: var(--glass);
+  border-radius: 2rem;
+  gap: 36px;
+  overflow: hidden;
+}
+
+
+.userpayContainer{
+  font-size: 18px !important;
+    margin: 40px;
+    border: 2px solid rgb(104, 211, 179);
+    width: 80%;
+    height: auto;
+    gap:20px;
+    padding: 20px;
+    
+}
+
+.orderHead{
+  text-align: center;
+}
+
+.oTotal{
+  font-size: 18px !important;
+ 
+}
+
+.oPrice{
+  color:blue;
+  font-size: 20px;
+  
+}
+
+.oButtons{
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cancel{
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5%;
+  background-color: red;
+  color: white;
+}
+
+.confirm{
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5%;
+  background-color: green;
+  color: white;
+}
+

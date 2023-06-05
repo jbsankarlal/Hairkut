@@ -1,0 +1,36 @@
+.service{
+     /* padding: 0.5rem 3.5rem; */
+  color: var(--black);
+  background: linear-gradient(
+    106.37deg,
+    #81cbb0 29.63%,
+    #b6e6dd 51.55%,
+    #5af0c5 90.85%
+  );
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.serviceGlass{
+    display: grid;
+  height: 97%;
+  width: 97%;
+  background: var(--glass);
+  border-radius: 2rem;
+  gap: 36px;
+  grid-template-columns: 11rem auto 2rem;
+  overflow: hidden;
+}
+
+.serviceTag{
+padding-top: 50px;
+}
+
+.serviceTag>h1{
+    color: #d31010;
+    font-size: 30px;
+    text-align: center;
+}

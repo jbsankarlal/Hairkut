@@ -1,0 +1,24 @@
+.footer{
+    
+    width: 100%;
+    background-color: #08A693;
+    color: white;
+    min-width: 1024px;
+    padding: 40px;
+}
+
+.footerList{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.footerHead{
+    padding-left: 30px;
+}
+
+.fListItem{
+    list-style: none;
+}

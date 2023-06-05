@@ -1,0 +1,140 @@
+.regis{
+     /* padding: 0.5rem 3.5rem; */
+  color: var(--black);
+  background: linear-gradient(
+    106.37deg,
+    #81cbb0 29.63%,
+    #b6e6dd 51.55%,
+    #5af0c5 90.85%
+  );
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.regisGlass{
+    display: grid;
+  height: 97%;
+  width: 97%;
+  background: var(--glass);
+  border-radius: 2rem;
+  gap: 36px;
+  overflow: hidden;
+}
+
+
+.regisContainer{
+    margin: 40px;
+    gap:20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.labelRegis{
+    justify-content: center;
+    font-size: 18px;
+    color: #0c523e;
+     width: 400px;
+     
+}
+
+.inputRegis{
+    justify-content: center;
+    width: 600px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.textWrap{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.yesButton{
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+}
+
+.noButton{
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    margin-right: 50px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.buttons{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap:40px;
+}
+
+/* For screens smaller than 576px */
+@media (max-width: 575px) {
+  .regisContainer {
+    margin: 20px;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .labelRegis {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .inputRegis {
+    width: 100%;
+  }
+  
+  .yesButton, .noButton {
+    width: 60px;
+    height: 25px;
+    font-size: 12px;
+  }
+}
+
+/* For screens larger than or equal to 576px and smaller than 768px */
+@media (min-width: 576px) and (max-width: 767px) {
+  .regisContainer {
+    margin: 30px;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .labelRegis {
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .inputRegis {
+    width: 100%;
+  }
+  
+  .yesButton, .noButton {
+    width: 70px;
+    height: 28px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,35 @@
+.pays{
+     /* padding: 0.5rem 3.5rem; */
+  color: var(--black);
+  background: linear-gradient(
+    106.37deg,
+    #81cbb0 29.63%,
+    #b6e6dd 51.55%,
+    #5af0c5 90.85%
+  );
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.paysGlass{
+       display: grid;
+  height: 97%;
+  width: 97%;
+  background: var(--glass);
+  border-radius: 2rem;
+  gap: 36px;
+  overflow: hidden;
+}
+
+
+.paysContainer{
+       margin: 40px;
+    gap:20px;
+    padding: 20px;
+    
+}

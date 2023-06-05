@@ -1,0 +1,32 @@
+.homeContainer{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.homeTitleV{
+    
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .homeTitleV {
+        font-size: 20px;
+        width: 90%;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    .homeTitleV {
+        font-size: 18px;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .homeContainer {
+        margin-top: 20px;
+    }
+}

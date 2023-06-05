@@ -1,0 +1,42 @@
+.slotContainer{
+padding: 50px;
+width: 100%;
+max-width: 1024px;
+display: flex;
+justify-content: space-between;
+}
+
+.slotButton{
+    height: 30px;
+    gap:10px;
+    padding: 5px 10px;
+    background-color: #7b11a8;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.slotButtons{
+    margin:10px;
+    height: 30px;
+    gap:10px;
+    padding: 5px 10px;
+    background-color: #22af85;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.slotListWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.slotList{
+    list-style: none;
+}

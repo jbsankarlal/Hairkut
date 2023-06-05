@@ -1,0 +1,148 @@
+.listContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    overflow-x: hidden;
+   
+}
+
+.listWrapper{
+    display: flex;
+    width: 100%;
+    max-width: 1224px;
+    gap: 20px;
+}
+
+.listSearch{
+    flex:1;
+    background-color: #15abbc;
+    padding: 10px;
+    border-radius: 10px;
+    position: sticky !important;
+    top:10px;
+    height:max-content
+}
+
+.listResult{
+flex:3
+}
+
+.searchTitle{
+    font-size: 20px;
+    color: white;
+}
+
+.lsItem{
+    display: flex;
+    flex-direction:column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.lsItem>input{
+    border: none;
+    height: 30px;
+    padding: 5px;
+}
+
+.lsItem>span{
+    border: none;
+    height: 30px;
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.optionItems{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+}
+
+.optionValue{
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+
+.listLabel{
+    color: white;
+    font-size: 12px;
+}
+
+.optionSearch{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(72, 14, 126);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Mobile Devices */
+@media only screen and (max-width: 480px) {
+    .listWrapper {
+        flex-wrap: wrap;
+    }
+    
+    .lsItem {
+        margin-bottom: 20px;
+    }
+    
+    .listSearch {
+        top: unset;
+        position: relative;
+    }
+}
+
+/* Tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .listWrapper {
+        flex-wrap: wrap;
+    }
+    
+    .lsItem {
+        margin-bottom: 20px;
+    }
+    
+    .listSearch {
+        top: unset;
+        position: relative;
+    }
+}
+
+/* Small Desktops */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    .listWrapper {
+        flex-wrap: wrap;
+    }
+    
+    .lsItem {
+        margin-bottom: 20px;
+    }
+    
+    .listSearch {
+        top: unset;
+        position: relative;
+    }
+}
+
+/* Large Desktops */
+@media only screen and (min-width: 993px) {
+    .listWrapper {
+        flex-wrap: nowrap;
+    }
+    
+    .lsItem {
+        margin-bottom: 10px;
+    }
+    
+    .listSearch {
+        top: 10px;
+        position: sticky !important;
+    }
+}

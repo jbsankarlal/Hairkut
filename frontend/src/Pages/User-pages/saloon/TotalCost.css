@@ -1,0 +1,24 @@
+.saloonPrice{
+    flex:1;
+    background-color: #94e5db;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.saloonPhead{
+    font-size: 15px;
+}
+
+.bookSlot{
+     background-color: rgb(86, 40, 130);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+}
