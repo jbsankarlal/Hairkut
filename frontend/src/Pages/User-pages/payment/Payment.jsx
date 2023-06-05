@@ -8,9 +8,13 @@ import { useEffect } from 'react';
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
 import { baseURL } from '../../../api/constants'
+import { AuthContext } from '../../../context/AuthContext'
 
 
 const Payment = () => {
+
+    const { user } = useContext(AuthContext)
+    console.log(user, "context--------user");
 
     const location = useLocation();
     const { selectedSlot, saloonName, totolCost } = location.state;
@@ -45,6 +49,10 @@ const Payment = () => {
                 url: `${baseURL}/users/payment`,
                 method: 'post',
                 data: {
+                    name: user.username,
+                    gender: user.gender,
+                    mobile: user.mobile,
+                    email: user.email,
                     amount: totolCost * 100,
                     token
                 }
