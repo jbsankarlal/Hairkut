@@ -16,7 +16,7 @@ const VendorLoggin = () => {
 
 
     const { user, loading, error, dispatch } = useContext(AdminAuthContext)
-    console.log(error, "errorrrrr333");
+
 
     const navigate = useNavigate()
 
