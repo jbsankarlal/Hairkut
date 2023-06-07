@@ -17,7 +17,8 @@ const Payment = () => {
     console.log(user, "context--------user");
 
     const location = useLocation();
-    const { selectedSlot, saloonName, totolCost } = location.state;
+    const { selectedSlot, saloonName, saloonAddress, saloonDistance, totolCost } = location.state;
+    console.log(saloonAddress, "saloonAddresssaloonAddress");
     const details = useContext(SearchContext)
 
     const peopleCount = details?.options?.males + details?.options?.females + details?.options?.children
@@ -53,6 +54,12 @@ const Payment = () => {
                     gender: user.gender,
                     mobile: user.mobile,
                     email: user.email,
+                    date: details.startdate.toDateString(),
+                    saloon: saloonName,
+                    saloonAddress: saloonAddress,
+                    saloonDistance: saloonDistance,
+                    count: peopleCount,
+                    slotDetails: slotDetails,
                     amount: totolCost * 100,
                     token
                 }
@@ -60,8 +67,10 @@ const Payment = () => {
             })
             if (response.status === 200) {
                 console.log("success");
+                navigate("/success")
             } else {
                 console.log("failed");
+                navigate(-1)
             }
         } catch (error) {
 

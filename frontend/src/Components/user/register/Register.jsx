@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Register.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { baseURL } from '../../../api/constants';
+import { toast } from 'react-toastify'
 
 const Register = () => {
+    const navigate = useNavigate()
+
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -36,16 +39,32 @@ const Register = () => {
             const res = await axios.post(`${baseURL}/auth/register`, formData);
             console.log(res.data);
             const status = res.status
-            alert(`Registration successful! Status: ${status}`);
+            toast.success('REGISTERED SUCCESSFULLY', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
+            navigate('/login')
+
+
         } catch (err) {
             console.error(err);
         }
     };
 
+
+
     return (
+
+
         <div className='containRegister'>
             <div className="container1">
-                <div className="title1">Registration</div>
+                <div className="title1" >HAIRKUT.CO   -  Registration</div>
                 <div className="content1">
                     <form onSubmit={handleSubmit}>
                         <div className="user-details">

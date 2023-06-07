@@ -18,6 +18,9 @@ padding-top: 5%;
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 .container1 .title1{
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 30px;
   font-size: 25px;
   font-weight: 500;
   position: relative;
@@ -30,7 +33,7 @@ padding-top: 5%;
   height: 3px;
   width: 30px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(135deg, #0d7463, #0b5b45);
 }
 .content1 form .user-details{
   display: flex;
@@ -60,7 +63,7 @@ form .input-box span.details{
 }
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
-  border-color: #9b59b6;
+  border-color: #13db9c;
 }
  form .gender-details .gender-title{
   font-size: 20px;
@@ -89,8 +92,8 @@ form .input-box span.details{
  #dot-1:checked ~ .category label .one,
  #dot-2:checked ~ .category label .two,
  #dot-3:checked ~ .category label .three{
-   background: #9b59b6;
-   border-color: #d9d9d9;
+   background: #0da483;
+   border-color: #1ad39f;
  }
  form input[type="radio"]{
    display: none;
@@ -110,11 +113,11 @@ form .input-box span.details{
    letter-spacing: 1px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+   background: linear-gradient(135deg, #22da84, #0a5b4c);
  }
  form .button1 input:hover{
   /* transform: scale(0.99); */
-  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  background: linear-gradient(-135deg, #30daa2, #0a805a);
   }
  @media(max-width: 584px){
  .container1{

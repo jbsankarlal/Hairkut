@@ -1,18 +1,22 @@
 import React from 'react'
 import { useContext } from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { baseURL } from '../../../api/constants';
+import './vendorLoggin.css'
+import axios from 'axios';
+import { AdminAuthContext } from '../../../context/AdminAuthContext';
 
-const vendorLoggin = () => {
+const VendorLoggin = () => {
 
     const [credentials, setCredentials] = useState({
-        username: undefined,
-        password: undefined,
+        username: '',
+        password: '',
     });
 
 
-    const { user, loading, error, dispatch } = useContext(AuthContext)
+    const { user, loading, error, dispatch } = useContext(AdminAuthContext)
+    console.log(error, "errorrrrr333");
 
     const navigate = useNavigate()
 
@@ -24,12 +28,12 @@ const vendorLoggin = () => {
         e.preventDefault();
         dispatch({ type: "LOGIN_START" });
         try {
-            const res = await axios.post(`${baseURL}/auth/login`, credentials);
+            const res = await axios.post(`${baseURL}/saloons/login`, credentials);
+            console.log(res, "ressss");
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-            navigate("/")
+            navigate("/vendor/home")
         } catch (err) {
             dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
-            console.log(err.response.data, "err===99999");
         }
     };
 
@@ -40,10 +44,10 @@ const vendorLoggin = () => {
             <>
 
                 <div className="wrapper1">
-                    <div className="title">Login Form</div>
+                    <div className="title">HAIRKUT.CO</div>
                     <form action="#">
                         <div className="field">
-                            <input type="text" required="" id="username" placeholder='Enter Username' onChange={handleChange} />
+                            <input type="email" required="" id="email" placeholder='Enter your mail id' onChange={handleChange} />
                             <label>Email Address</label>
                         </div>
                         <div className="field">
@@ -60,16 +64,16 @@ const vendorLoggin = () => {
                             </div>
                         </div>
                         <div className="field">
-                            <input disabled={loading} type="submit" onClick={handleClick} defaultValue="Login" />
+                            <input type="submit" onClick={handleClick} defaultValue="Login" />
                         </div>
 
                         {/* <button type="submit" onClick={handleClick}>Login</button> */}
                         <div>
-                            {error && <span>{error.message}eroor message</span>}
+                            {error && <span style={{ color: "red" }}>{error}</span>}
                         </div>
 
 
-                        <Link to="/register">
+                        <Link to="/vendor">
                             <div className="signup-link">
                                 Not a member? <a href="#">Signup now</a>
                             </div>
@@ -82,4 +86,4 @@ const vendorLoggin = () => {
     )
 }
 
-export default vendorLoggin
+export default VendorLoggin

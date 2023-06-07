@@ -1,11 +1,29 @@
 const Saloon = require("../models/saloonModel");
 const Slot = require("../models/slotModel");
 const BankAccount = require("../models/BankAccountModel")
+const cloudinary = require('../utils/cloudinary')
+const createError = require('http-errors');
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken');
 
- const createSaloon = async(req,res,next)=>{
+
+
+    const createSaloon = async(req,res,next)=>{
     const newSaloon=  new Saloon(req.body)
+
+   
     
     try {
+
+         var salt = bcrypt.genSaltSync(10);
+         var hash = bcrypt.hashSync(req.body.password, salt);
+
+
+        const image = await cloudinary.uploader.upload(req.file.path)
+        console.log(image.secure_url);
+        newSaloon.photos = image.secure_url
+        newSaloon.password= hash
+        console.log(newSaloon,"saloonsss");
        const savedSaloon = await  newSaloon.save() 
        res.status(200).json(savedSaloon)
 
@@ -15,16 +33,17 @@ const BankAccount = require("../models/BankAccountModel")
 }
 
 const bankInfo = async (req, res, next) => {
-  const bankData = new BankAccount(req.body);
-  console.log(bankData, "bankData");
+ 
   try {
+ const bankData = new BankAccount(req.body);
+  console.log(bankData, "bankData");
+    
     const bankDetails = await bankData.save();
     console.log(bankDetails, "bankDetails");
     res.status(200).json(bankDetails);
   } catch (err) {
     console.error(err); // Log the error for debugging purposes
     
-    // Handle the error and send an appropriate response to the client
     res.status(500).json({ error: 'An error occurred while saving bank details' });
   }
 };
@@ -151,6 +170,18 @@ const getSlots = async (req,res,next)=>{
     }
 }
 
+const getAllSaloons = async(req,res,next)=>{
+    try {
+        console.log(req.query.limit,"helooyy22");
+       const saloon = await Saloon.find().skip((req.query.page-1)*req.query.limit).limit(req.query.limit)
+       res.status(200).json(saloon)
 
-module.exports= { createSaloon, updateSaloon, deleteSaloon, getSaloon,getSaloonCity, getAllSaloon, updateSaloonStatus, countByService, countByCity, getSlots, bankInfo };
+    } catch (err) {
+        res.status(500).json(err)
+         next(err);
+    }
+}
+
+
+module.exports= { createSaloon, updateSaloon, deleteSaloon, getSaloon,getSaloonCity, getAllSaloon,getAllSaloons, updateSaloonStatus, countByService, countByCity, getSlots, bankInfo };
 

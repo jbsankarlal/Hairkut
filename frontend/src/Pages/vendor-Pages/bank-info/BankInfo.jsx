@@ -4,6 +4,7 @@ import Navbar from '../../../Components/vendor/navbar/Navbar'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { toast } from 'react-toastify';
 import { baseURL } from '../../../api/constants'
 
 const BankInfo = () => {
@@ -49,9 +50,20 @@ const BankInfo = () => {
     // Handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`${baseURL}saloons/bankinfo`, { accountNo, fullName, ifsc, upi, mobile, email, pan }).then(() => {
-            alert("registration Successful")
+        axios.post(`${baseURL}/saloons/bankinfo`, { accountNo, fullName, ifsc, upi, mobile, email, pan }).then(() => {
+            toast.success('REGISTRATION COMPLETED SCCESSFULLY', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
             navigate('/vendor/addservice')
+        }).catch((err) => {
+            console.log(err, "errrr");
         })
 
     };

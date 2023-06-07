@@ -50,7 +50,6 @@ const Header = ({ type }) => {
 
     const navigate = useNavigate()
     const details = useContext(SearchContext)
-    console.log(details, "detilssssssssssssss");
 
     useEffect(() => {
 
@@ -84,7 +83,7 @@ const Header = ({ type }) => {
     }
 
 
-    const [activeItem, setActiveItem] = useState("");
+    const [activeItem, setActiveItem] = useState("Hair Cut");
 
     const handleClick = (item) => {
         setActiveItem(item);
@@ -115,26 +114,20 @@ const Header = ({ type }) => {
                     ))}
                 </div>
 
-
+                <p className='danger'>{destinationError}</p>
 
 
                 <div className="headerSearch">
                     <div className="headerSearchItem">
                         <FontAwesomeIcon icon={faDharmachakra} className='headerIcon' />
                         <input type="text" placeholder='Ener the Place Name' value={destination} className='headerSearchInput'
-                            onChange={(e) => setDestination(e.target.value)}
+                            onChange={(e) => {
+                                setDestinationError('');
+                                return setDestination(e.target.value)
+                            }}
                         />
-
                     </div>
 
-
-
-
-                    {showError && (
-                        <Alert variant="warning" onClose={() => setShowError(false)} dismissible>
-                            {errorMessage}
-                        </Alert>
-                    )}
 
                     <label htmlFor="datePicker">
                         <div className="headerSearchItem">
@@ -180,15 +173,7 @@ const Header = ({ type }) => {
                     </div>
 
 
-                    {/* <InstantSearch searchClient={searchClient} indexName="sakar">
-                        <AlgoliaPlaces
-                            placeholder="Search for a place"
-                            onSuggestionSelected={({ suggestion }) => {
-                                // Handle the selected place
-                                console.log(suggestion);
-                            }}
-                        />
-                    </InstantSearch> */}
+
 
                     <div className="headerSearchItem">
 

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { baseURL } from '../../../api/constants'
+import { Toaster, toast } from 'react-hot-toast'
 
 const Regis = () => {
 
@@ -74,16 +75,65 @@ const Regis = () => {
     };
 
     // Handle form submission
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     axios.post(`${baseURL}/saloons`, { name, type, place, city, address, distance, photos, title, description, mobile, email, password }).then(() => {
+    //         navigate('/vendor/bankinfo')
+    //     })
+    // };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`${baseURL}/saloons`, { name, type, place, city, address, distance, photos, title, description, mobile, email, password }).then(() => {
-            navigate('/vendor/bankinfo')
-        })
+        console.log(photos[0])
 
+        // Create a new FormData object
+        const formData = new FormData();
+
+        // Append fields to the FormData object
+        formData.append('name', name);
+        formData.append('type', type);
+        formData.append('place', place);
+        formData.append('city', city);
+        formData.append('address', address);
+        formData.append('distance', distance);
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('mobile', mobile);
+        formData.append('email', email);
+        formData.append('password', password);
+
+        // Append photos to the FormData object
+        // photos.forEach((photo, index) => {
+        formData.append('photo', photos[0]);
+        // });
+
+        // Make a POST request to the server with the FormData
+        axios.post(`${baseURL}/saloons`, formData)
+            .then(() => {
+                toast.success('Please Wait, Regitering..', {
+                    position: "bottom-center",
+                    autoClose: 6000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                })
+                navigate('/vendor/bankinfo');
+
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
+
+
+
     return (
         <div>
             <Navbar />
+
             <div className="regis">
                 <div className="regisGlass">
 

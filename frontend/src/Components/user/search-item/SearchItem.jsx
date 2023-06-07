@@ -3,18 +3,18 @@ import './SearchItem.css'
 import React from 'react'
 
 const SearchItem = ({ item }) => {
-    console.log("arrived");
+    console.log("arrived", item);
     return (
 
         < div className='searchResult' >
             < div className='searchItem' >
-                <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2Fsb258ZW58MHx8MHx8&w=1000&q=80" alt="" className="siImg" />
+                <img src={item.photos} alt="" className="siImg" />
                 <div className="siDetails">
                     <h1 className="siTitle">{item.name}</h1>
                     <span className="siLocation">{item.address}</span>
-                    <span className="siServices">Hair Cutting, Bridal Makeups</span>
-                    <span className="siSpeciality">{item.address}</span>
-                    <span className="siCancel">Cancellation Available</span>
+                    <span className="siServices">Hair Cutting</span>
+                    <span className="siSpeciality">{item.distance}</span>
+                    <span className="siCancel">COD not available</span>
                 </div>
                 <div className="siOffers">
                     {item.rating && < div className="siRating">

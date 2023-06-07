@@ -9,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import "./saloon-table.css";
 import { useEffect } from "react";
 import { useState } from "react";
+import { baseURL } from "../../../api/constants";
 
 
 
@@ -42,7 +43,7 @@ export default function SaloonTable({ saloons1, setSaloons }) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch("http://localhost:5000/api/saloons");
+                const response = await fetch(`${baseURL}/saloons`);
                 const data = await response.json();
                 setSaloons(data);
             } catch (error) {
@@ -56,7 +57,7 @@ export default function SaloonTable({ saloons1, setSaloons }) {
         console.log("001-", saloon);
         const updatedSaloon = { ...saloon, status: !saloon.status };
         try {
-            const response = await fetch(`http://localhost:5000/api/saloons/status/${saloon._id}`, {
+            const response = await fetch(`${baseURL}/saloons/status/${saloon._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -95,7 +96,7 @@ export default function SaloonTable({ saloons1, setSaloons }) {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-
+                            <TableCell align="left">SLNo.</TableCell>
                             <TableCell align="left">NAME</TableCell>
                             <TableCell align="left">TYPE</TableCell>
                             <TableCell align="left">PLACE</TableCell>
@@ -104,11 +105,12 @@ export default function SaloonTable({ saloons1, setSaloons }) {
                         </TableRow>
                     </TableHead>
                     <TableBody style={{ color: "white" }}>
-                        {saloons1.map((saloon) => (
+                        {saloons1.map((saloon, index) => (
                             <TableRow
                                 key={saloon.name}
                                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                             >
+                                <TableCell align="left">{index + 1}</TableCell>
                                 <TableCell component="th" scope="row">
                                     {saloon.name}
                                 </TableCell>

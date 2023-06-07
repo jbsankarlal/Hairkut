@@ -5,7 +5,7 @@ import { baseURL } from '../../../api/constants'
 
 const Featured = () => {
 
-    const { data, loading, error } = useFetch(`${baseURL}/saloons/countByService?services=Haircut,Facials,Bridal`)
+    const { data, loading, error } = useFetch(`${baseURL}/saloons/countByService?services=Haircut,unisex,Bridal`)
     console.log(data);
     return (
 
@@ -21,7 +21,7 @@ const Featured = () => {
                 <div className="featuredItem">
                     <img src="https://img.freepik.com/premium-photo/professional-stylist-modern-stylish-barbershop-shaves-cuts-young-man-s-hair-beauty-salon-hair-salon_180601-13979.jpg?w=2000" alt="" className="featuredImg" />
                     <div className="featuredTile">
-                        <h1 className="headName">Facials</h1>
+                        <h1 className="headName">Unisex</h1>
                         <h2 className="subName">{data[1]} spots</h2>
                     </div>
                 </div>

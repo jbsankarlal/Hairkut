@@ -12,7 +12,6 @@ import Bookings from './Pages/admin-Pages/bookings/Bookings'
 import Reports from './Pages/admin-Pages/reports/Reports'
 import FundTransfer from './Pages/admin-Pages/fund-transfer/Fund-Transfer'
 import VendorHome from './Pages/vendor-Pages/vendor-home/VendorHome'
-import ViewBookings from './Pages/vendor-Pages/view-bookings/ViewBookings'
 import Regis from './Pages/vendor-Pages/registration/Regis'
 import BankInfo from './Pages/vendor-Pages/bank-info/BankInfo'
 import PaymentInfo from './Pages/vendor-Pages/payment-info/PaymentInfo'
@@ -23,6 +22,9 @@ import Register from "./Components/user/register/Register";
 import Login from "./Pages/User-pages/login/SignUp";
 import Homepage from "./Pages/vendor-Pages/homepage/homepage";
 import SuccessPage from "./Pages/User-pages/success/success";
+import ViewBookings from "./Pages/User-pages/view-bookings/ViewBookings";
+import ViewVendorBookings from "./Pages/vendor-Pages/view-bookings/ViewVendorBookings";
+import  VendorLogin from "./Pages/vendor-Pages/vendor-login/vendorLogin";
 
 function App() {
   return (
@@ -42,8 +44,9 @@ function App() {
     <Route exact path="/admin/Fund-Transfer" element={<FundTransfer/>}/>
     <Route path="/vendor/" element={<VendorHome/>}/>
     <Route path="/vendor/home" element={<Homepage/>}/>
-    <Route path="/vendor/viewbookings" element={<ViewBookings/>}/>
+    <Route path="/vendor/ViewVendorBookings" element={<ViewVendorBookings/>}/>
     <Route path="/vendor/registration" element={<Regis/>}/>
+    <Route path="/vendor/login" element={<VendorLogin/>}/>
     <Route path="/vendor/bankinfo" element={<BankInfo/>}/>
     <Route path="/vendor/paymentinfo" element={<PaymentInfo/>}/>
     <Route path="/vendor/reporter" element={<Reporter/>}/>
@@ -52,6 +55,7 @@ function App() {
     <Route path="/register" element={<Register/>}/>
     <Route path="/login" element={<Login/>}/>
     <Route path="/success" element={<SuccessPage/>}/>
+    <Route path="/view-bookings" element={<ViewBookings/>}/>
    </Routes>
    </BrowserRouter>
   );

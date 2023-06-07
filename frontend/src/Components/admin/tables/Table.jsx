@@ -8,16 +8,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./Table.css";
 
-function createData(name, saloonName, date, service, status) {
-    return { name, saloonName, date, service, status };
-}
-
-const rows = [
-    createData("Sankar", "Green Unisex Saloon", "2 March 2022", "Hair cut", "Completed"),
-    createData("Anshitha", "Darkworld Saloon", "4 March 2022", "Bridal Makeupt", "Pending"),
-    createData("Ramesh", "hilite Unisex Saloon", "5 March 2022", "Hair cut", "Completed"),
-    createData("Sachin", "Hilton Unisex Saloon", "1 March 2022", "Hair cut", "Completed"),
-];
 
 
 const makeStyle = (status) => {
@@ -41,7 +31,7 @@ const makeStyle = (status) => {
     }
 }
 
-export default function BasicTable() {
+export default function BasicTable({ rows }) {
     return (
         <div className="Table">
             {/* <h3>Recent Bookings</h3> */}
@@ -52,30 +42,26 @@ export default function BasicTable() {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Name</TableCell>
+                            <TableCell>SLNo.</TableCell>
                             <TableCell align="left">Shop Name</TableCell>
-                            <TableCell align="left">Date</TableCell>
-                            <TableCell align="left">Service</TableCell>
-                            <TableCell align="left">Status</TableCell>
-                            <TableCell align="left"></TableCell>
+                            <TableCell align="left">Total Service Taken</TableCell>
+                            <TableCell align="left">Amount</TableCell>
+
                         </TableRow>
                     </TableHead>
                     <TableBody style={{ color: "white" }}>
-                        {rows.map((row) => (
+                        {rows.map((row, index) => (
                             <TableRow
                                 key={row.name}
                                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                             >
+                                <TableCell align="left">{index + 1}</TableCell>
                                 <TableCell component="th" scope="row">
-                                    {row.name}
+                                    {row.saloon}
                                 </TableCell>
-                                <TableCell align="left">{row.saloonName}</TableCell>
-                                <TableCell align="left">{row.date}</TableCell>
-                                <TableCell align="left">{row.service}</TableCell>
-                                <TableCell align="left">
-                                    <span className="status" style={makeStyle(row.status)}>{row.status}</span>
-                                </TableCell>
-                                <TableCell align="left" className="Details">Details</TableCell>
+                                <TableCell align="left">{row.count}</TableCell>
+                                <TableCell align="left">₹{row.amount / 100}</TableCell>
+
                             </TableRow>
                         ))}
                     </TableBody>

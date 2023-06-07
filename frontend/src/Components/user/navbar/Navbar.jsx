@@ -7,11 +7,16 @@ const Navbar = () => {
 
     const navigate = useNavigate()
     const { user, dispatch } = useContext(AuthContext)
+    console.log(user, "userr");
 
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" });
         localStorage.clear();
         navigate("/")
+    }
+
+    const handleBookings = () => {
+        navigate(`/view-bookings`)
     }
 
     return (
@@ -31,6 +36,7 @@ const Navbar = () => {
                                 <button className="navButton">Login</button>
                             </Link>
                         </div>)}
+                    {user && <button className='logoutButton' onClick={handleBookings}>BOOKINGS</button>}
                     {user && <button className='logoutButton' onClick={handleLogout}>LOGOUT</button>}
                 </div>
 

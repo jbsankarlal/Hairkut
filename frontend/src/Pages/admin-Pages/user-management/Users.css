@@ -7,7 +7,7 @@
     #b6e6dd 51.55%,
     #5af0c5 90.85%
   );
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,4 +33,10 @@ padding-top: 50px;
     color: #d31010;
     font-size: 30px;
     text-align: center;
+}
+
+.page{
+  justify-content: center;
+  padding-top: 10px;
+  text-align: center;
 }

@@ -9,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import "./user-table.css";
 import { useState } from "react";
 import { useEffect } from "react";
+import { baseURL } from "../../../api/constants";
 
 
 
@@ -43,7 +44,7 @@ export default function UserTable({ users1, setUsers }) {
         console.log("001-", user);
         const updatedUser = { ...user, status: !user.status };
         try {
-            const response = await fetch(`http://localhost:5000/api/users/status/${user._id}`, {
+            const response = await fetch(`${baseURL}/users/status/${user._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -80,7 +81,7 @@ export default function UserTable({ users1, setUsers }) {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-
+                            <TableCell align="left">SLNo.</TableCell>
                             <TableCell align="left">USERNAME</TableCell>
                             <TableCell align="left">EMAIL</TableCell>
                             <TableCell align="left">MOBILE</TableCell>
@@ -89,11 +90,12 @@ export default function UserTable({ users1, setUsers }) {
                         </TableRow>
                     </TableHead>
                     <TableBody style={{ color: "white" }}>
-                        {users1.map((user) => (
+                        {users1.map((user, index) => (
                             <TableRow
                                 key={user.name}
                                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                             >
+                                <TableCell align="left">{index + 1}</TableCell>
                                 <TableCell component="th" scope="row">
                                     {user.username}
                                 </TableCell>

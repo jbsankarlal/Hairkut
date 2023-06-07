@@ -1,11 +1,12 @@
 const User = require("../models/userModel");
 const createError = require('http-errors');
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const Saloon = require("../models/saloonModel");
 
 const register = async(req,res,next)=>{
 try {
-    console.log("10101its comingg");
+   
 var salt = bcrypt.genSaltSync(10);
 var hash = bcrypt.hashSync(req.body.password, salt);
 
@@ -51,4 +52,29 @@ console.log(user._doc,"user._doc");
 }
 }
 
-module.exports = {register,login};
+
+const vendorLogin = async(req,res,next)=>{
+try {
+
+    const user = await Saloon.findOne({email:req.body.email})
+    if(!user) return res.status(404).send("user not found")
+
+    const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
+if(!isPasswordCorrect) return res.status(400).send("Incorrect Username or Password")
+
+const token = jwt.sign({id:user._id, isAdmin: user.isAdmin, isVendor: user.isVendor }, process.env.JWT)
+
+const {password, isAdmin, isVendor, ...otherInfo} = user._doc;
+console.log(user._doc,"user._doc");
+
+    res.cookie("access_token",token,{
+        httpOnly:true
+    }).status(200).send({...otherInfo})
+
+} catch (err) {
+    next(err)
+    
+}
+}
+
+module.exports = {register,login, vendorLogin};

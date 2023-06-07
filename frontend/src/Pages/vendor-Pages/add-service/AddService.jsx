@@ -1,15 +1,20 @@
 import { color } from '@mui/system'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../../../Components/vendor/navbar/Navbar'
 import './AddService.css'
+import { baseURL } from '../../../api/constants'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import { AdminAuthContext } from '../../../context/AdminAuthContext'
 
 
 const AddService = () => {
     const [service, setService] = useState('');
-    const [cost, setCost] = useState('');
-    const [discount, setDiscount] = useState('');
+    const [price, setPrice] = useState('');
+    const [gender, setGender] = useState('');
 
+    const { user } = useContext(AdminAuthContext)
 
     const navigate = useNavigate();
     // Handle input changes and update state
@@ -18,28 +23,36 @@ const AddService = () => {
     };
 
     const handleCost = (event) => {
-        setCost(event.target.value);
+        setPrice(event.target.value);
     };
 
 
-    const handleDiscount = (e) => {
-        let enteredDiscount = e.target.value;
-
-        // Remove any non-digit characters from the entered discount
-        enteredDiscount = enteredDiscount.replace(/\D/g, '');
-
-        // Limit the discount to a maximum of 50
-        if (enteredDiscount > 50) {
-            enteredDiscount = 50;
-        }
-
-        setDiscount(enteredDiscount);
+    const handleGender = (event) => {
+        setGender(event.target.value);
     };
+    const saloonID = user._id
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Do something with the input values, such as sending them to a server or updating state in a parent component
-        console.log(service, cost, discount);
+        axios.post(`${baseURL}/service`, { saloonID, service, price, gender }).then(() => {
+            toast.success('SERVICE ADDED SUCCESSFULLY', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
+            navigate('/vendor/addservice')
+            setService('')
+            setPrice('')
+            setGender('')
+        }).catch((err) => {
+            console.log(err, "errrr");
+        })
+        console.log(service, price, gender);
     };
 
 
@@ -51,7 +64,7 @@ const AddService = () => {
                     <div className="addsContainer1">
                         <h1 style={{ color: 'red' }}>ADD NEW SERVICE</h1>
                         <div className="textWrapper">
-                            <form1 onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit}>
 
                                 <div className="textWrap">
                                     <label className='labelAdd'>
@@ -71,32 +84,26 @@ const AddService = () => {
                                 <div className="textWrap">
                                     <label className='labelAdd'>
                                         Service Cost:
-                                        <input className='inputAdd' type="number" value={cost} onChange={handleCost} />
+                                        <input className='inputAdd' type="number" value={price} onChange={handleCost} />
                                     </label>
                                 </div>
 
-                                <div className="textWrap">
-                                    <label className='labelAdd'>
-                                        Service Discount:
-                                        <input className='inputAdd' type="number" value={discount} onChange={handleDiscount} />
-                                    </label>
-                                </div>
 
                                 <div className="textWrap">
                                     <label className='labelAdd'>
                                         Gender:
-                                        <select className='inputAdd' value={discount} onChange={handleDiscount}>
+                                        <select className='inputAdd' value={gender} onChange={handleGender}>
                                             <option value="">Select gender</option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
-                                            <option value="other">Other</option>
+                                            <option value="other">Unisex</option>
                                         </select>
                                     </label>
                                 </div>
 
-                                <button className='yesSlotButton' type="submit" onClick={() => navigate('/vendor/slotmanagement')}>Submit</button>
+                                <button className='yesSlotButton' type="submit" onClick={() => handleSubmit()}>Submit</button>
 
-                            </form1>
+                            </form>
 
                         </div>
                     </div>

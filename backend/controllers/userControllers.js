@@ -65,7 +65,7 @@ const getUser = async(req,res,next)=>{
 const getAllUser = async(req,res,next)=>{
     console.log("3333---33333----3333");
     try {
-       const user = await  User.find() 
+       const user = await  User.find().skip((req.query.page-1)*req.query.limit).limit(req.query.limit)
        res.status(200).json(user)
 
     } catch (err) {

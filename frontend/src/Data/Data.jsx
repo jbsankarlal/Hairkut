@@ -39,14 +39,7 @@ export const SidebarData = [
         icon: UilPackage,
         heading: 'Bookings'
     },
-    {
-        icon: UilChart,
-        heading: 'Fund-Transfer'
-    },
-    {
-        icon: UilChart,
-        heading: 'Services'
-    },
+
     {
         icon: UilChart,
         heading: 'Reports'

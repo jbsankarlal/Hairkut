@@ -50,6 +50,11 @@ body {
     gap: 10px;
 }
 
+.danger{
+  color: rgba(197, 209, 34, 0.658);
+  font-weight: bold;
+}
+
 .headerList-item.active{
     border: 2px solid white;
     padding: 10px;

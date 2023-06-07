@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   startdate: new Date(),
   options: {
     males: 1,
-    females:1,
+    females:0,
     children: 0
   },
 };

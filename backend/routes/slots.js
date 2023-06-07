@@ -5,7 +5,7 @@ const {createSlot, updateSlot, deleteSlot, getSlot, getAllSlot, getSlotData} = r
 const router = express.Router();
 
 //create
-router.post('/:saloonId' , createSlot);
+router.post('/' , createSlot);
 
 //update
 router.put('/:id', verifyAdmin , updateSlot);

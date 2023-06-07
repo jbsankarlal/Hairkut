@@ -8,7 +8,7 @@ import { getDate } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
 import { baseURL } from '../../../api/constants'
 
-const Reserve = ({ setOpen, saloonId, saloonName, totolCost }) => {
+const Reserve = ({ setOpen, saloonId, saloonName, saloonAddress, saloonDistance, totolCost }) => {
     const [selectedSlot, setSelectedSlot] = useState([])
 
     const { data, loading, error } = useFetch(`${baseURL}/saloons/slot/${saloonId}`)
@@ -37,7 +37,7 @@ const Reserve = ({ setOpen, saloonId, saloonName, totolCost }) => {
     console.log(selectedSlot, "0=0=0=0=0");
 
     const handleClick = () => {
-        navigate("/saloons/payment", { state: { selectedSlot: selectedSlot, saloonName: saloonName, totolCost: totolCost } })
+        navigate("/saloons/payment", { state: { selectedSlot: selectedSlot, saloonName: saloonName, saloonAddress: saloonAddress, saloonDistance: saloonDistance, totolCost: totolCost } })
     }
 
     return (

@@ -25,6 +25,7 @@ const Saloon = () => {
     const [openModal, setOpenModal] = useState(false)
 
     const { data, loading, error, reFetch } = useFetch(`${baseURL}/saloons/finds/${id}`)
+    console.log(data, "datpppppppppppppp");
 
     const details = useContext(SearchContext)
     const peopleCount = details?.options?.males + details?.options?.females + details?.options?.children
@@ -50,29 +51,29 @@ const Saloon = () => {
     return (
         <div>
             <Navbar />
-            <Header type="list" />
+
             {loading ? ("Loading") : (< div className="saloonContainer">
                 <div className="saloonWrapper">
                     <button onClick={handleClick} className="bookNow">Book your Slot Now</button>
 
-                    <h1 className="saloonName">{data.name}</h1>
+                    <h1 className="saloonName">{data?.name}</h1>
                     <div className="saloonAddress">
                         <FontAwesomeIcon icon={faLocationDot} />
-                        <span>{data.address}</span>
+                        <span>{data?.address}</span>
                     </div>
-                    <span className='saloonDist'>{data.distance}</span>
+                    <span className='saloonDist'>{data?.distance}</span>
                     <div className="saloonImgs">
-                        {data.photos?.map(photo => (
-                            <div div className="saloonImgWrapper" >
-                                <img src={photo} className="SaloonImg" alt="" />
-                            </div>
-                        ))}
+
+                        <div div className="saloonImgWrapper" >
+                            <img src={data?.photos} className="SaloonImg" alt="" />
+                        </div>
+
                     </div>
                     <div className="saloonInfo">
                         <div className="saloonText">
-                            <h1 className="saloonHead">{data.title}</h1>
-                            <p className="saloonDesp">{data.description}</p>
-                            <h1 className="saloonHead">Services Available</h1>
+                            <h1 className="saloonHead">{data?.title}</h1>
+                            <p className="saloonDesp">{data?.description}</p>
+
                             <ServiceList id={id} />
                         </div>
                         <div className="saloonPrice">
@@ -88,7 +89,7 @@ const Saloon = () => {
             </div>)}
             <Mail />
             <Footer />
-            {openModal && <Reserve setOpen={setOpenModal} saloonId={id} saloonName={data.name} service={data.service} totolCost={totolCost} />}
+            {openModal && <Reserve setOpen={setOpenModal} saloonId={id} saloonName={data.name} saloonAddress={data.address} saloonDistance={data.distance} service={data.service} totolCost={totolCost} />}
         </div >
     )
 

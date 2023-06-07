@@ -7,7 +7,7 @@ const { verifyUser } = require('../utils/verifyToken');
 const router = express.Router();
 
 //create
-router.post('/' ,verifyUser,createService);
+router.post('/' ,createService);
 
 //update
 router.put('/:id', verifyUser , updateService);

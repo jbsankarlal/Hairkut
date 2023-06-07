@@ -1,12 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../../Components/admin/sidebar/Sidebar'
 import Table from '../../../Components/admin/tables/Table'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Reports.css'
+import { baseURL } from '../../../api/constants';
+import axios from 'axios';
 
 const Reports = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [fromDate, setFromDate] = useState(new Date())
+    const [toDate, setToDate] = useState(new Date())
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        // fetchData()
+    }, [])
+
+    const handleClick = (e) => {
+        e.preventDefault()
+        axios.post(`${baseURL}/users/get-report`, { fromDate, toDate }).then((res) => {
+            setData(res.data)
+        })
+    }
+
     return (
         <div className='report'>
             <div className="reportGlass">
@@ -14,14 +30,17 @@ const Reports = () => {
                 <div className="reportTag">
 
                     <h1>REPORTS</h1>
-                    <div className='dateTag'>
-                        <h3>From date <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} /> </h3>
+                    <form onSubmit={handleClick}>
+                        <div className='dateTag'>
+                            <h3>From date </h3>
+                            <input type="date" id="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} name="date" />
+                            <h3>To date </h3>
+                            <input type="date" id="date" value={toDate} onChange={(e) => setToDate(e.target.value)} name="date" />
+                            <button className="reportSearch" type='submit' >Search</button>
+                        </div>
+                    </form>
 
-                        <h3>To date  <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} /> </h3>
-                        <button className="reportSearch">Search</button>
-                    </div>
-
-                    <Table />
+                    <Table rows={data} />
                 </div>
             </div>
 

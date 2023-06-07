@@ -1,0 +1,22 @@
+.bookingContainer{
+    margin:20px;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.booking-table th, .booking-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+.booking-table th {
+  background-color: #f2f2f2;
+}
+
+.booking-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

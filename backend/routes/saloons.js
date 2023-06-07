@@ -1,14 +1,16 @@
 const Saloon = require('../models/saloonModel')
 const express = require('express');
-const { createSaloon, updateSaloon, deleteSaloon, getSaloon,getSaloonCity, getAllSaloon, updateSaloonStatus, countByService, countByCity, getSlots, bankInfo } = require('../controllers/saloonControllers');
+const { createSaloon, updateSaloon, deleteSaloon, getSaloon,getSaloonCity, getAllSaloon, updateSaloonStatus, countByService, countByCity, getSlots, bankInfo, getAllSaloons } = require('../controllers/saloonControllers');
 const { verifyAdmin, verifyVendor } = require('../utils/verifyToken');
+const upload = require('../utils/multer');
+const { vendorLogin } = require('../controllers/authControllers');
 
 
 const router = express.Router();
 
 //create
 
-router.post('/' ,createSaloon);
+router.post('/' ,upload.single('photo'),createSaloon);
 
 router.post('/bankinfo',bankInfo)
 
@@ -21,6 +23,8 @@ router.delete('/:id', verifyAdmin, deleteSaloon);
    
 //get
 router.get('/', getAllSaloon);
+router.get('/all',getAllSaloons)
+router.post('/login',vendorLogin)
 router.get('/find/:id', getSaloonCity);
 router.get('/finds/:id', getSaloon);
 

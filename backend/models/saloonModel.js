@@ -7,7 +7,7 @@ const saloonSchema = mongoose.Schema({
     city:{type: String, required: true},
     address:{type: String, required: true},
     distance:{type: String, required: true},
-    photos:{type: [String]},
+    photos:{type: String,required:true},
     title:{type: String, required: true},
     description:{type: String, required: true},
     mobile:{type: Number, required: true},

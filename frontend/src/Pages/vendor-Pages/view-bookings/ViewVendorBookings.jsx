@@ -3,7 +3,7 @@ import './ViewBookings.css'
 import Navbar from '../../../Components/vendor/navbar/Navbar'
 import Table from '../../../Components/vendor/table/Table'
 
-const ViewBookings = () => {
+const ViewVendorBookings = () => {
     return (
         <div>
             <Navbar />
@@ -20,4 +20,4 @@ const ViewBookings = () => {
     )
 }
 
-export default ViewBookings
+export default ViewVendorBookings

@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const slotSchema = mongoose.Schema({
+    service: { type: String, required: true},
     startTime: {type: String,required: true},
     endTime: {type: String,required: true },
+    slotNumber:{type:String,required:true},
     isAvailable: { type: Boolean, default: true },
-    service: { type: String, required: true},
-    // slotNumber:[{number:String, unavailableDates:[{type:Date}]}],
-    slotNumber:{type:String,required:true}}, 
+    saloonID:{type:String, required:true}}, 
     {
         timestamps:true
     }

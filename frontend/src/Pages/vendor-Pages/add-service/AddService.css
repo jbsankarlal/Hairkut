@@ -1,83 +1,69 @@
-.adds{
-     /* padding: 0.5rem 3.5rem; */
-  color: var(--black);
-  background: linear-gradient(
-    106.37deg,
-    #81cbb0 29.63%,
-    #b6e6dd 51.55%,
-    #5af0c5 90.85%
-  );
-  height: 100vh;
-  min-height: 100vh;
+.labelAdd {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.inputAdd {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.selectAdd {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.yesSlotButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.yesSlotButton:hover {
+  background-color: #45a049;
+}
+
+.addsContainer1 {
+  margin-right: 20px;
+}
+
+.addsContainer2 {
+  margin-left: 20px;
+}
+
+.addsGlass {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Inter', sans-serif;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.addsGlass{
- display: grid;
-  height: 97%;
-  width: 97%;
-  background: var(--glass);
-  border-radius: 2rem;
-  gap: 36px;
-  overflow: hidden;
-}
-
-
-.addsContainer1{
-    height: 10vh;
-    margin: 40px 40px  0 40px ;
-    gap:20px;
-    padding: 20px;
-    
-}
-
-.addsContainer2{
-    height: 30vh;
-    margin:0 40px;
-    gap:20px;
-    padding: 20px;
-    
-}
-
-.labelAdd{
-    font-size: 18px;
-    color: #0c523e;
-     width: 200px;
-     
-}
-
-.inputAdd{
-    width: 200px;
-    height: 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-.yesSlotButton{
-    width: 200px;
-    height: 30px;
-    border: none;
-    border-radius: 5px;
-    background-color: green;
-    color: white;
-}
-
-.textWrapper{
+.adds {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
 }
 
-.textWrap{
-  display: flex;
-  flex-direction: row;
+.textWrapper {
+  margin-top: 20px;
 }
 
-form1{
-  display: flex;
-  align-items: center;
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
+

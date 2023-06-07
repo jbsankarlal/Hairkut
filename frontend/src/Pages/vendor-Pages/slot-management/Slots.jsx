@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from '../../../Components/vendor/navbar/Navbar';
 import './Slots.css';
 import axios from 'axios';
+import { baseURL } from '../../../api/constants';
+import { AdminAuthContext } from '../../../context/AdminAuthContext';
+import { toast } from 'react-toastify';
 
 const Slots = () => {
     const [service, setService] = useState('');
-    const [slotNo, setSlotNo] = useState('');
+    const [slotNumber, setSlotNumber] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
 
-    // Handle input changes and update state
+
+    const { user } = useContext(AdminAuthContext)
+
     const handleService = (event) => {
         setService(event.target.value);
     };
 
-    const handleSlotNo = (event) => {
-        setSlotNo(event.target.value);
+    const handleSlotNumber = (event) => {
+        setSlotNumber(event.target.value);
     };
 
     const handleStartTime = (event) => {
@@ -27,11 +32,22 @@ const Slots = () => {
         setEndTime(event.target.value);
     };
 
+    const saloonID = user._id
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Do something with the input values, such as sending them to a server or updating state in a parent component
-        axios.post("http://localhost:5000/api/saloons/${saloonId}", { service, slotNo, startTime, endTime })
-        console.log(service, slotNo, startTime, endTime);
+        axios.post(`${baseURL}/slots/`, { service, startTime, endTime, slotNumber, saloonID })
+        toast.success('SLOT ADDED SUCCESSFULLY', {
+            position: "bottom-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        })
+
+        console.log(service, slotNumber, startTime, endTime);
     };
 
 
@@ -53,7 +69,7 @@ const Slots = () => {
                     <div className="addsContainer1">
                         <h1 style={{ color: 'red' }}>ADD A TIME SLOT</h1>
                         <div className="textWrapper">
-                            <form1 onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit}>
                                 <div className="textWrap">
                                     <label htmlFor="dropdown">Choose a service:</label>
                                     <select id="dropdown" value={service} onChange={handleService}>
@@ -67,9 +83,9 @@ const Slots = () => {
                                 </div>
 
                                 <div className="textWrap">
-                                    <label htmlFor="slotDropdown">Choose a slot number:</label>
-                                    <select id="slotDropdown" value={slotNo} onChange={handleSlotNo}>
-                                        <option value="">Please choose a slot number</option>
+                                    <label htmlFor="slotDropdown">Choose a slot no.:</label>
+                                    <select id="slotDropdown" value={slotNumber} onChange={handleSlotNumber}>
+                                        <option value="">Please choose a slot no.</option>
                                         <option value="HK1">HK1</option>
                                         <option value="HK2">HK2</option>
                                         <option value="HK3">HK3</option>
@@ -108,10 +124,10 @@ const Slots = () => {
                                     </select>
                                 </div>
 
-                                <button className="yesButton" type="submit" onClick={() => handleSubmit}>
+                                <button className="confirm" type="submit" onClick={() => handleSubmit}>
                                     Submit
                                 </button>
-                            </form1>
+                            </form>
                         </div>
                         {/* <button className="yesSlotButton">Add new time slot +</button> */}
                     </div>
