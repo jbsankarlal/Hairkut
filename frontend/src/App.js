@@ -24,7 +24,7 @@ import Homepage from "./Pages/vendor-Pages/homepage/homepage";
 import SuccessPage from "./Pages/User-pages/success/success";
 import ViewBookings from "./Pages/User-pages/view-bookings/ViewBookings";
 import ViewVendorBookings from "./Pages/vendor-Pages/view-bookings/ViewVendorBookings";
-import VendorLogin from "./Pages/vendor-Pages/vendor-login/VendorLogin";
+import VLogin from "./Pages/vendor-Pages/vendor-login/VLogin";
 
 function App() {
   return (
@@ -49,7 +49,7 @@ function App() {
           element={<ViewVendorBookings />}
         />
         <Route path="/vendor/registration" element={<Regis />} />
-        <Route path="/vendor/login" element={<VendorLogin />} />
+        <Route path="/vendor/login" element={<VLogin />} />
         <Route path="/vendor/bankinfo" element={<BankInfo />} />
         <Route path="/vendor/paymentinfo" element={<PaymentInfo />} />
         <Route path="/vendor/reporter" element={<Reporter />} />
