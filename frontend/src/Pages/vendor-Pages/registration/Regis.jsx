@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { baseURL } from '../../../api/constants'
-import { Toaster, toast } from 'react-hot-toast'
+import { toast } from 'react-toastify'
 
 const Regis = () => {
 
