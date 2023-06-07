@@ -48,6 +48,7 @@ router.post("/get-report", async (req, res) => {
           _id: 0,
           saloon: "$_id.saloon",
           month: "$_id.month",
+
           count: 1,
           amount: 1,
           totalValues: 1,
