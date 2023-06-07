@@ -68,9 +68,9 @@ const VendorLoggin = () => {
                         </div>
 
                         {/* <button type="submit" onClick={handleClick}>Login</button> */}
-                        <div>
+                        {/* <div>
                             {error && <span style={{ color: "red" }}>{error}</span>}
-                        </div>
+                        </div> */}
 
 
                         <Link to="/vendor">
