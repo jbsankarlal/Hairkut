@@ -10,6 +10,8 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import useFetch from '../../../hooks/useFetch'
 import { baseURL } from '../../../api/constants'
+import { BarLoader, SyncLoader } from 'react-spinners'
+import Pagination from '../../../Components/admin/pagination/Pagination';
 
 const List = () => {
 
@@ -18,7 +20,10 @@ const List = () => {
     const [startdate, setStartdate] = useState(location.state.startdate)
     const [openDate, setOpenDate] = useState(false)
     const [options, setOptions] = useState(location.state.options)
-    const { data, loading, error, reFetch } = useFetch(`${baseURL}/saloons/find/${destination}`)
+    const [saloons, setSaloons] = useState([]);
+    const [pageNo, setPageNo] = useState(1)
+
+    const { data, loading, error, reFetch } = useFetch(`${baseURL}/saloons/find?destination=${destination}&page=${pageNo}&limit=8`)
 
     const handleClick = () => {
         reFetch();
@@ -32,7 +37,7 @@ const List = () => {
             <div className="listContainer">
                 <div className="listWrapper">
                     <div className="listSearch">
-                        < h1 className="searchTitle" > Search</h1>
+                        < h1 className="searchTitle">Search</h1>
                         <div className="lsItem">
                             <label className='listLabel' htmlFor="">Destination</label>
                             <input placeholder={destination} onChange={(e) => setDestination(e.target.value)} type="text" />
@@ -71,13 +76,15 @@ const List = () => {
                     </div>
                     <div className="listResult">
 
-                        {loading ? "Loading Please Wait" : <>
+                        {loading ? <SyncLoader /> : <>
                             {console.log(data, "kerooooo")}
                             {data && data.map(item => (
                                 <SearchItem item={item} key={item._id} />
                             ))}
                         </>}
+                        <div className='page'><Pagination currentPag={pageNo} onPageChange={setPageNo} length={saloons.length} /></div>
                     </div>
+
                 </div>
             </div >
         </div >

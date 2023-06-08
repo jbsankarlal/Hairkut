@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    padding-left: 30px;
 }
 
 .footerHead{
@@ -22,6 +23,8 @@
     list-style: none;
     
 }
+
+
 
 
 

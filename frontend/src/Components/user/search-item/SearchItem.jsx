@@ -3,7 +3,7 @@ import './SearchItem.css'
 import React from 'react'
 
 const SearchItem = ({ item }) => {
-    console.log("arrived", item);
+
     return (
 
         < div className='searchResult' >
@@ -12,7 +12,7 @@ const SearchItem = ({ item }) => {
                 <div className="siDetails">
                     <h1 className="siTitle">{item.name}</h1>
                     <span className="siLocation">{item.address}</span>
-                    <span className="siServices">Hair Cutting</span>
+                    <span className="siServices">Hair Cut</span>
                     <span className="siSpeciality">{item.distance}</span>
                     <span className="siCancel">COD not available</span>
                 </div>

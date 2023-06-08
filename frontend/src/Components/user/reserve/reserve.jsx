@@ -17,12 +17,6 @@ const Reserve = ({ setOpen, saloonId, saloonName, saloonAddress, saloonDistance,
     const details = useContext(SearchContext)
     const allDates = getDate(details.startdate)
 
-    // const isAvailable = (slotNumber) => {
-    //     const isFound = slotNumber.unavailableDates.some((date) =>
-    //         allDates.includes(new Date(details.startdate).getTime()))
-    //     return !isFound
-    // }
-
     let totalCount = details.options.males + details.options.females + details.options.children
 
     const handleSelect = (e) => {
@@ -53,14 +47,15 @@ const Reserve = ({ setOpen, saloonId, saloonName, saloonAddress, saloonDistance,
                     return (< div className="rItem">
                         <div className="rInfo">
 
-                            <div className="rItemInfo">{item.slotNumber}</div>
+                            <div className="rItemInfo">{item.slotNumber}
+                                <input type="checkbox" className='checkbox' value={item._id} onChange={handleSelect} checked={selectedSlot.includes(item._id)}
+                                    disabled={selectedSlot.length === totalCount}
+                                /></div>
                             <div className="nameCode">{item.service}</div>
                             <div className="timeInfo">
                                 {item.startTime} to {item.endTime}
                             </div>
-                            <input type="checkbox" value={item._id} onChange={handleSelect} checked={selectedSlot.includes(item._id)}
-                                disabled={selectedSlot.length === totalCount}
-                            />
+
                         </div>
                         {/* {item.slotNumber?.map((slotNo) => (
                             <div>

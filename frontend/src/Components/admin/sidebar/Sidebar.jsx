@@ -16,6 +16,10 @@ const Sidebar = () => {
         navigate(`/admin/${item.heading}`);
     }
 
+    const handleLogout = () => {
+        navigate('/admin/login')
+    }
+
     return (
         <div>
             <div className="sidebar">
@@ -39,7 +43,7 @@ const Sidebar = () => {
                                 <span>{item.heading}</span>
                             </div>)
                     })}
-                    <div className="menuItem">
+                    <div className="menuItem" onClick={handleLogout}>
                         <UilSignOutAlt />
                     </div>
                 </div>

@@ -55,8 +55,6 @@ router.post("/get-report", async (req, res) => {
         },
       },
     ]);
-
-    console.log(data, "666666666666666666666666666");
     res.send(data);
   } catch (err) {
     res.send(err);
@@ -138,7 +136,7 @@ router.put("/status/:id", updateUserStatus);
 router.delete("/:id", verifyUser, deleteUser);
 
 //get
-router.get("/:id", verifyUser, getUser);
+router.get("/:id", getUser);
 
 //get all
 router.get("/", getAllUser);

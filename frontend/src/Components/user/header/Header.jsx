@@ -148,7 +148,7 @@ const Header = ({ type }) => {
                                 <div className="optionCounter">
                                     <button disabled={options.males <= 0} className="optionCount" onClick={() => handleOption("males", "d")}>-</button>
                                     <span className="optionCounterValue">{options.males}</span>
-                                    <button className="optionCount" onClick={() => handleOption("males", "i")}>+</button>
+                                    <button disabled={options.males >= 2 || options.females >= 2 || options.children >= 2 || (options.females >= 1 && options.children >= 1) || (options.males >= 1 && options.females >= 1) || (options.males >= 1 && options.children >= 1)} className="optionCount" onClick={() => handleOption("males", "i")}>+</button>
                                 </div>
                             </div>
 
@@ -157,7 +157,7 @@ const Header = ({ type }) => {
                                 <div className="optionCounter">
                                     <button disabled={options.females <= 0} className="optionCount" onClick={() => handleOption("females", "d")}>-</button>
                                     <span className="optionCounterValue">{options.females}</span>
-                                    <button className="optionCount" onClick={() => handleOption("females", "i")}>+</button>
+                                    <button disabled={options.females >= 2 || options.children >= 2 || options.males >= 2 || (options.children >= 1 && options.males >= 1) || (options.males >= 1 && options.females >= 1) || (options.children >= 1 && options.females >= 1)} className="optionCount" onClick={() => handleOption("females", "i")}>+</button>
                                 </div>
                             </div>
 
@@ -166,7 +166,7 @@ const Header = ({ type }) => {
                                 <div className="optionCounter">
                                     <button disabled={options.children <= 0} className="optionCount" onClick={() => handleOption("children", "d")}>-</button>
                                     <span className="optionCounterValue">{options.children}</span>
-                                    <button className="optionCount" onClick={() => handleOption("children", "i")}>+</button>
+                                    <button disabled={options.children >= 2 || options.females >= 2 || options.males >= 2 || (options.females >= 1 && options.males >= 1) || (options.children >= 1 && options.males >= 1) || (options.children >= 1 && options.females >= 1)} className="optionCount" onClick={() => handleOption("children", "i")}>+</button>
                                 </div>
                             </div>
                         </div>}

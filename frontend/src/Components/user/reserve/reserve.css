@@ -60,3 +60,22 @@
   width: 100%;
   margin-top: 20px;
 }
+
+.checkbox {
+  font-size: 16px; /* Increase the font size to your desired value */
+  /* Add any other styling properties to make it visually appealing */
+  /* For example, you can add background color, border, padding, etc. */
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  padding: 8px;
+  /* Add transitions or animations for hover or active effects */
+  transition: background-color 0.3s ease;
+}
+
+.checkbox:hover {
+  background-color: #e6e6e6;
+}
+
+.checkbox:active {
+  background-color: #d9d9d9;
+}

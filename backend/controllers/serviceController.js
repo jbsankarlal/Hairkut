@@ -71,10 +71,20 @@ const getAllService = async (req, res, next) => {
   }
 };
 
+const getServices = async (req, res, next) => {
+  try {
+    const data = await Service.find({ saloonId: req.query.id });
+    res.send(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   createService,
   updateService,
   deleteService,
   getService,
   getAllService,
+  getServices,
 };

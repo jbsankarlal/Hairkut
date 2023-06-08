@@ -2,6 +2,10 @@ import React from 'react'
 import './Featured.css'
 import useFetch from '../../../hooks/useFetch'
 import { baseURL } from '../../../api/constants'
+import {
+    BarLoader,
+    SyncLoader
+} from 'react-spinners'
 
 const Featured = () => {
 
@@ -9,8 +13,8 @@ const Featured = () => {
     console.log(data);
     return (
 
-        <div div className="featured" >
-            {loading ? "Loading Please Wait" : <><div className="featuredItem">
+        <div className="featured" >
+            {loading ? <BarLoader /> : <><div className="featuredItem">
                 <img src="https://www.edubrain.in/image/Hair-styling.jpg" alt="" className="featuredImg" />
                 <div className="featuredTile">
                     <h1 className="headName">Hair Cut</h1>

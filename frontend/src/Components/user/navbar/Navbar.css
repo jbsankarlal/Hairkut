@@ -1,7 +1,6 @@
 .navbar{
     height: 50px;
     background-color: #08A693;
-    display: flex;
     justify-content: center;
 }
 
@@ -15,10 +14,10 @@
 }
 
 .logo{
-    padding-top: 10px;
     font-weight: 500px;
     font-size: 36px;
     font-weight: bolder;
+    align-items: center;
 }
 
 .navButton {
@@ -61,8 +60,6 @@
 
   .logo {
     font-size: 18px;
-    margin-top: 10px;
-    padding: 10px 0;
   }
 
   .navButton {

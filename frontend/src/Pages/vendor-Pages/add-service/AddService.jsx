@@ -7,6 +7,7 @@ import { baseURL } from '../../../api/constants'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { AdminAuthContext } from '../../../context/AdminAuthContext'
+import ServiceTab from '../../../Components/vendor/service-table/serviceTab'
 
 
 const AddService = () => {
@@ -109,6 +110,7 @@ const AddService = () => {
                     </div>
                     <div className="addsContainer2">
                         <h1>APPROVED SERVICES</h1>
+                        <ServiceTab />
                     </div>
                 </div>
             </div>

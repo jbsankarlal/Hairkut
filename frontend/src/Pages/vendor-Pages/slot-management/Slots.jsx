@@ -5,6 +5,7 @@ import axios from 'axios';
 import { baseURL } from '../../../api/constants';
 import { AdminAuthContext } from '../../../context/AdminAuthContext';
 import { toast } from 'react-toastify';
+import SlotTab from '../../../Components/vendor/slot-table/SlotTab'
 
 const Slots = () => {
     const [service, setService] = useState('');
@@ -133,6 +134,7 @@ const Slots = () => {
                     </div>
                     <div className="addsContainer2">
                         <h1>ADDED TIME SLOTS</h1>
+                        <SlotTab />
                     </div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ import TotalCost from './TotalCost'
 import Reserve from '../../../Components/user/reserve/reserve'
 import { AuthContext } from '../../../context/AuthContext'
 import { baseURL } from '../../../api/constants'
+import { BarLoader, SyncLoader } from 'react-spinners'
 
 
 
@@ -52,7 +53,7 @@ const Saloon = () => {
         <div>
             <Navbar />
 
-            {loading ? ("Loading") : (< div className="saloonContainer">
+            {loading ? (<div className='loader'><BarLoader /></div>) : (< div className="saloonContainer">
                 <div className="saloonWrapper">
                     <button onClick={handleClick} className="bookNow">Book your Slot Now</button>
 

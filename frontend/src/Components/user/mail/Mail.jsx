@@ -2,6 +2,8 @@ import "./Mail.css"
 import React from 'react'
 
 const Mail = () => {
+    ;
+
     return (
         <div className="mailto">
             <h1 className="mailHead">Save you Time & Money</h1>

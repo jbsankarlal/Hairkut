@@ -24,6 +24,11 @@ object-fit: cover;
     font-size: 9px;
 }
 
+.loader{
+  min-height: 50px;
+  size:60px;
+}
+
 @media screen and (max-width: 768px) {
   .popular {
     flex-direction: column;

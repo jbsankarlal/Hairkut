@@ -40,7 +40,7 @@ const Login = () => {
             <>
 
                 <div className="wrapper1">
-                    <div className="title">Login Form</div>
+                    <div className="title">USER LOGIN</div>
                     <form action="#">
                         <div className="field">
                             <input type="text" required="" id="username" placeholder='Enter Username' onChange={handleChange} />
@@ -51,15 +51,12 @@ const Login = () => {
                             <label>Password</label>
                         </div>
                         <div className="content">
-                            <div className="checkbox">
-                                <input type="checkbox" id="remember-me" />
-                                <label htmlFor="remember-me">Remember me</label>
-                            </div>
+
                             <div className="pass-link">
                                 <a href="#">Forgot password?</a>
                             </div>
                         </div>
-                        <div className="field">
+                        <div className="field" >
                             <input disabled={loading} type="submit" onClick={handleClick} defaultValue="Login" />
                         </div>
 

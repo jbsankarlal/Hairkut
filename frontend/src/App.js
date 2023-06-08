@@ -25,6 +25,7 @@ import SuccessPage from "./Pages/User-pages/success/success";
 import ViewBookings from "./Pages/User-pages/view-bookings/ViewBookings";
 import ViewVendorBookings from "./Pages/vendor-Pages/view-bookings/ViewVendorBookings";
 import VLogin from "./Pages/vendor-Pages/vendor-login/VLogin";
+import AdminLogin from "./Pages/admin-Pages/login/AdminLogin";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/saloons/:id" element={<Saloon />} />
         <Route path="/saloons/slot" element={<Slot />} />
         <Route exact path="/saloons/payment" element={<Payment />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/Dashboard" element={<Dashboard />} />
         <Route path="/admin/Users" element={<Users />} />
         <Route path="/admin/Companies" element={<Company />} />
