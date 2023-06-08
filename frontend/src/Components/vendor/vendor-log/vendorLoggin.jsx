@@ -65,7 +65,7 @@ const VendorLoggin = () => {
                         </div>
 
 
-                        <Link to="/vendor">
+                        <Link to="/vendor/registration">
                             <div className="signup-link">
                                 Not a member? <a href="#">Signup now</a>
                             </div>
