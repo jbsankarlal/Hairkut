@@ -7,7 +7,7 @@ import { baseURL } from '../../../api/constants'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { AdminAuthContext } from '../../../context/AdminAuthContext'
-import ServiceTab from '../../../Components/vendor/service-table/serviceTab'
+import ServiceTab from '../../../Components/vendor/service-table/ServiceTab'
 
 
 const AddService = () => {
