@@ -47,13 +47,10 @@ const deleteService = async (req, res, next) => {
 
 const getService = async (req, res, next) => {
   try {
-    console.log("service kitti", req.query.sname);
-
     const service = await Service.find({
       saloonId: req.query.id,
       servicename: req.query.sname,
     });
-    console.log(service, "daataSEE");
     res.status(200).json(service);
   } catch (err) {
     res.status(500).json(err);

@@ -14,9 +14,7 @@ const VendorLoggin = () => {
         password: '',
     });
 
-
     const { user, loading, error, dispatch } = useContext(AdminAuthContext)
-
 
     const navigate = useNavigate()
 
@@ -29,15 +27,12 @@ const VendorLoggin = () => {
         dispatch({ type: "LOGIN_START" });
         try {
             const res = await axios.post(`${baseURL}/saloons/login`, credentials);
-            console.log(res, "ressss");
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
             navigate("/vendor/home")
         } catch (err) {
             dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
         }
     };
-
-
 
     return (
         <div className='containLogin'>
@@ -73,7 +68,6 @@ const VendorLoggin = () => {
                     </form>
                 </div>
             </>
-
         </div>
     )
 }

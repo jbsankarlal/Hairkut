@@ -12,9 +12,7 @@ const FundTransfer = () => {
                     <h1>FUND TRANSFER</h1>
                     <PayTable />
                 </div>
-
             </div>
-
         </div>
     )
 }

@@ -10,8 +10,6 @@ import {
 
 } from "@iconscout/react-unicons";
 
-
-
 // Analytics Cards imports
 
 import { keyboard } from "@testing-library/user-event/dist/keyboard";
@@ -44,7 +42,6 @@ export const SidebarData = [
         icon: UilChart,
         heading: 'Reports'
     }
-
 
 ];
 

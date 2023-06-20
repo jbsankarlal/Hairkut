@@ -39,7 +39,6 @@ const Booking = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.length && console.log(data, "ooooooooooooooo")}
                     {data.length && data.map((booking, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>

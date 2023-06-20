@@ -12,6 +12,11 @@ const Reserve = ({ setOpen, saloonId, saloonName, saloonAddress, saloonDistance,
     const [selectedSlot, setSelectedSlot] = useState([])
 
     const { data, loading, error } = useFetch(`${baseURL}/saloons/slot/${saloonId}`)
+    if (data) {
+        console.log(data, "lllssssssssssssssssssssssssssssssssssss");
+    } else {
+        console.log(error, "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+    }
     const navigate = useNavigate()
 
     const details = useContext(SearchContext)
@@ -28,7 +33,6 @@ const Reserve = ({ setOpen, saloonId, saloonName, saloonAddress, saloonDistance,
         setSelectedSlot(checked ? [...selectedSlot, value] : selectedSlot.filter((item) => item !== value))
 
     }
-    console.log(selectedSlot, "0=0=0=0=0");
 
     const handleClick = () => {
         navigate("/saloons/payment", { state: { selectedSlot: selectedSlot, saloonName: saloonName, saloonAddress: saloonAddress, saloonDistance: saloonDistance, totolCost: totolCost } })
@@ -57,15 +61,7 @@ const Reserve = ({ setOpen, saloonId, saloonName, saloonAddress, saloonDistance,
                             </div>
 
                         </div>
-                        {/* {item.slotNumber?.map((slotNo) => (
-                            <div>
-                                {console.log(slotNo, "qqqqqqqqqqqqqqqqqqqqqqq")}
-                                <label >{slotNo.number}</label>
-                                <input type="checkbox" value={slotNo._id} onChange={handleSelect}
-                                />
-                                
-                            </div>))
-                        } */}
+
                     </div>)
                 })}
                 <button onClick={handleClick} className="rButton">Book Now</button>

@@ -131,7 +131,7 @@ const BankInfo = () => {
 
                             <div className="buttons">
                                 <button className='noButton' type="button">Cancel</button>
-                                <button className='yesButton' type="submit">Submit</button>
+                                <button className='yesButton1' type="submit">Submit</button>
                             </div>
                         </form>
                     </div>

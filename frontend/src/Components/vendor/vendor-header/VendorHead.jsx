@@ -14,16 +14,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const VendorHead = ({ type }) => {
     const [destination, setDestination] = useState("")
     const [openDate, setOpenDate] = useState(false)
-    const [startdate, setStartdate] = useState(new Date());
-
-    // useState([
-    //     {
-    //         startDate: new Date(),
-    //         endDate: new Date(),
-    //         key: 'selection'
-    //     }
-    // ]);
-
+    const [startdate, setStartdate] = useState(new Date())
     const [openOptions, setopenOptions] = useState(false)
     const [options, setOptions] = useState({
         males: 1,
@@ -56,10 +47,8 @@ const VendorHead = ({ type }) => {
             </>}
             <div className={type === "list" ? "headerContainers listMode" : "headerContainers"}>
 
-
                 <div className="headerLists">
                     <h1>Do you want to be part of this?</h1>
-
 
                 </div>
                 <div className="headerSearchs">

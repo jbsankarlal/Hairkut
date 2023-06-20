@@ -39,10 +39,6 @@ const Navbar = () => {
                     {user && <button className='logoutButton' onClick={handleBookings}>BOOKINGS</button>}
                     {user && <button className='logoutButton' onClick={handleLogout}>LOGOUT</button>}
                 </div>
-
-
-
-
             </div>
         </div >
     )

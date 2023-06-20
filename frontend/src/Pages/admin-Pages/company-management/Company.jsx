@@ -11,8 +11,6 @@ const Company = () => {
     const [saloons, setSaloons] = useState([]);
     const [pageNo, setPageNo] = useState(1)
 
-
-
     useEffect(() => {
         const fetchUsers = async () => {
             const res = await axios.get(`${baseURL}/saloons/all?page=${pageNo}&limit=8`);
@@ -31,9 +29,7 @@ const Company = () => {
                     <SaloonTable saloons1={saloons} setSaloons={setSaloons} />
                     <div className='page'><Pagination currentPag={pageNo} onPageChange={setPageNo} length={saloons.length} /></div>
                 </div>
-
             </div>
-
         </div>
     )
 }

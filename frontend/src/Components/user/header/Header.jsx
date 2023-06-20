@@ -52,8 +52,6 @@ const Header = ({ type }) => {
     const details = useContext(SearchContext)
 
     useEffect(() => {
-
-        console.log("setting");
         setDestination("")
         setStartdate(new Date())
         setOptions({
@@ -77,7 +75,6 @@ const Header = ({ type }) => {
         setDestinationError('');
 
         dispatch({ type: "NEW_SEARCH", payload: { destination, startdate, options } })
-        console.log(dispatch, "dispatch");
         navigate("/saloons", { state: { destination, startdate, options } })
 
     }

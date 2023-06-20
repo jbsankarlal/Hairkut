@@ -9,7 +9,6 @@ const ViewVendorBookings = () => {
             <Navbar />
             < div className='books' >
                 <div className="booksGlass">
-
                     <div className='booksContainer'>
                         <h1>BOOKINGS FOR YOU</h1>
                         <Table />

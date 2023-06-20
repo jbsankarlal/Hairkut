@@ -74,14 +74,6 @@ const Regis = () => {
         setPassword(event.target.value);
     };
 
-    // Handle form submission
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     axios.post(`${baseURL}/saloons`, { name, type, place, city, address, distance, photos, title, description, mobile, email, password }).then(() => {
-    //         navigate('/vendor/bankinfo')
-    //     })
-    // };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(photos[0])
@@ -136,7 +128,6 @@ const Regis = () => {
 
             <div className="regis">
                 <div className="regisGlass">
-
                     <span className="regisContainer">
                         <h1>Please fill this form for Registration</h1>
 
@@ -236,11 +227,10 @@ const Regis = () => {
 
                             <span className="buttons">
                                 <button className='noButton' type="button">Cancel</button>
-                                <button className='yesButton' type="submit" onClick={() => handleSubmit}>Submit</button>
+                                <button className='yesButton1' type="submit" onClick={() => handleSubmit}>Submit</button>
                             </span>
                         </form>
                     </span>
-
                 </div>
             </div >
         </div >

@@ -4,9 +4,8 @@ import React from 'react'
 
 const SearchItem = ({ item }) => {
 
-    return (
-
-        < div className='searchResult' >
+    return (<>
+        {item.slot.length !== 0 && < div className='searchResult' >
             < div className='searchItem' >
                 <img src={item.photos} alt="" className="siImg" />
                 <div className="siDetails">
@@ -31,10 +30,8 @@ const SearchItem = ({ item }) => {
                     </div>
                 </div>
             </ div>
-
-
-        </div >
-
+        </div >}
+    </>
     )
 }
 

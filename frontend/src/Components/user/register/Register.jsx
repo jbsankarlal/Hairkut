@@ -26,12 +26,30 @@ const Register = () => {
         e.preventDefault();
 
         if (!formData.username || !formData.email || !formData.mobile || !formData.password || !formData.confirmPassword || !formData.gender) {
-            alert('Please fill in all fields');
+            toast.success('PLEASE FILL ALL THE FIELDS', {
+                position: "bottom-center",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
             return;
         }
 
         if (formData.password !== formData.confirmPassword) {
-            alert('Passwords do not match');
+            toast.success('INCORRECT PASSWORD! TRY AGAIN!', {
+                position: "bottom-center",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            })
             return;
         }
 
@@ -171,9 +189,6 @@ const Register = () => {
                     </Link>
                 </div>
             </div>
-
-
-
         </div>
     )
 }

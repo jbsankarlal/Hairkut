@@ -12,9 +12,7 @@ const Services = () => {
                     <h1>CONFIRM SERVICES</h1>
                     <Table />
                 </div>
-
             </div>
-
         </div>
     )
 }

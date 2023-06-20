@@ -14,11 +14,8 @@ import { AuthContext } from '../../../context/AuthContext'
 const Payment = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user, "context--------user");
-
     const location = useLocation();
     const { selectedSlot, saloonName, saloonAddress, saloonDistance, totolCost } = location.state;
-    console.log(saloonAddress, "saloonAddresssaloonAddress");
     const details = useContext(SearchContext)
 
     const peopleCount = details?.options?.males + details?.options?.females + details?.options?.children
@@ -127,7 +124,6 @@ const Payment = () => {
                     </div>
                 </div>
             </div>
-
         </div>
 
     )

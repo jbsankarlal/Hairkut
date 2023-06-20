@@ -39,11 +39,9 @@ const Reports = () => {
                             <button className="reportSearch" type='submit' >Search</button>
                         </div>
                     </form>
-
                     <Table rows={data} />
                 </div>
             </div>
-
         </div>
     )
 }

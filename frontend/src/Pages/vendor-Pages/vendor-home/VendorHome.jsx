@@ -9,7 +9,6 @@ const VendorHome = () => {
             <Navbar />
             < div className='books' >
                 <div className="booksGlass">
-
                     <div className='booksContainer'>
                         <h3>Excited to have you onboard!</h3>
                         <h1>YOUR RECENT BOOKINGS !!</h1>

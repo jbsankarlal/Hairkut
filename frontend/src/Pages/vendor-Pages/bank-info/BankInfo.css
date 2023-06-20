@@ -42,7 +42,7 @@
 
 .inputRegis{
     width: 600px;
-    height: 30px;
+    height: 39px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -57,7 +57,8 @@
     padding: 10px;
 }
 
-.yesButton{
+.yesButton1{
+    font-size: 12px !important;
     width: 80px;
     height: 30px;
     border: none;

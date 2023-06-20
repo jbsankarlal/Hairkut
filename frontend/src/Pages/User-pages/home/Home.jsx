@@ -14,11 +14,8 @@ const Home = () => {
             <Header />
             <div className="homeContainer">
                 <h1 className="homeTitle">Popular Services</h1>
-
                 <Featured />
-
                 <h1 className="homeTitle">Browse by Place</h1>
-
                 <Popular />
                 <Mail />
                 <Footer />

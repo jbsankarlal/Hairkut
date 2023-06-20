@@ -8,7 +8,6 @@ function Registration() {
         <div className='regisContainer'>
             <Navbar />
             <Register />
-
         </div>
     )
 }

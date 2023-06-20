@@ -26,8 +26,6 @@ const Saloon = () => {
     const [openModal, setOpenModal] = useState(false)
 
     const { data, loading, error, reFetch } = useFetch(`${baseURL}/saloons/finds/${id}`)
-    console.log(data, "datpppppppppppppp");
-
     const details = useContext(SearchContext)
     const peopleCount = details?.options?.males + details?.options?.females + details?.options?.children
     const [totolCost, setTotolCost] = useState(0)
@@ -36,7 +34,6 @@ const Saloon = () => {
     const date = new Date();
     const option = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     const formattedDate = date.toLocaleDateString('en-US', option);
-    console.log(formattedDate, "DATE");
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
 

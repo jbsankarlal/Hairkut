@@ -10,7 +10,6 @@ const Popular = () => {
     const navigate = useNavigate()
 
     const { data, loading, error } = useFetch(`${baseURL}/saloons?limit=6`)
-    console.log("hellooo");
     const handleFeatured = (id) => {
         navigate(`saloons/${id}`);
     }
@@ -23,14 +22,9 @@ const Popular = () => {
                         <h1 className="popularHead">{item.name}</h1>
                         <h2 className="popularSub">{item.city}</h2>
                         <h3 className="addressSpan">{item.address}</h3>
-
                     </div>
                 </div>))}
-
-
-
             </>)}
-
         </div>
     )
 }

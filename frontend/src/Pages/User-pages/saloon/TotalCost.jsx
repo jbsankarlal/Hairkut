@@ -7,7 +7,6 @@ import { baseURL } from '../../../api/constants'
 
 const TotalCostt = ({ id, setTotolCost }) => {
 
-
     const { data, loading, error, reFetch } = useFetch(`${baseURL}/service/find?id=${id}&sname=haircut`)
 
     const details = useContext(SearchContext)
@@ -17,10 +16,7 @@ const TotalCostt = ({ id, setTotolCost }) => {
 
     return (
         <>
-
             {data && <span className='saloonPprice'> ₹{finalCost}</span>}
-
-
         </>
     )
 }

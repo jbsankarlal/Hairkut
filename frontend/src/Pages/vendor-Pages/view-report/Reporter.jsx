@@ -12,21 +12,16 @@ const Reporter = () => {
             <Navbar />
             <div div className='reporter' >
                 <div className="reporterGlass">
-
                     <div className="reporterContainer">
-
                         <h1>REPORTS</h1>
                         <div className='dateTag'>
                             <h3>From date <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} /> </h3>
-
                             <h3>To date  <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} /> </h3>
                             <button className="reportSearch">Search</button>
                         </div>
-
                         <Table />
                     </div>
                 </div>
-
             </div >
         </div>
     )

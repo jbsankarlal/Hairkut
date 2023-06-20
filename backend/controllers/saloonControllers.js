@@ -14,10 +14,8 @@ const createSaloon = async (req, res, next) => {
     var hash = bcrypt.hashSync(req.body.password, salt);
 
     const image = await cloudinary.uploader.upload(req.file.path);
-    console.log(image.secure_url);
     newSaloon.photos = image.secure_url;
     newSaloon.password = hash;
-    console.log(newSaloon, "saloonsss");
     const savedSaloon = await newSaloon.save();
     res.status(200).json(savedSaloon);
   } catch (err) {
@@ -28,10 +26,7 @@ const createSaloon = async (req, res, next) => {
 const bankInfo = async (req, res, next) => {
   try {
     const bankData = new BankAccount(req.body);
-    console.log(bankData, "bankData");
-
     const bankDetails = await bankData.save();
-    console.log(bankDetails, "bankDetails");
     res.status(200).json(bankDetails);
   } catch (err) {
     console.error(err); // Log the error for debugging purposes
@@ -57,7 +52,6 @@ const updateSaloon = async (req, res, next) => {
 };
 
 const updateSaloonStatus = async (req, res, next) => {
-  console.log("222-22-222-000", req.params.id, req.body.status);
   try {
     const updatedUserStatus = await Saloon.findByIdAndUpdate(
       req.params.id,
@@ -83,7 +77,6 @@ const deleteSaloon = async (req, res, next) => {
 
 const getSaloon = async (req, res, next) => {
   try {
-    console.log("happyget");
     const saloon = await Saloon.findOne({ _id: req.params.id });
     res.status(200).json(saloon);
   } catch (err) {
@@ -94,7 +87,6 @@ const getSaloon = async (req, res, next) => {
 
 const getSaloonCity = async (req, res, next) => {
   try {
-    console.log("helooyyyy");
     const saloon = await Saloon.find({ city: req.query.destination })
       .skip((req.query.page - 1) * req.query.limit)
       .limit(req.query.limit);
@@ -107,7 +99,6 @@ const getSaloonCity = async (req, res, next) => {
 
 const getAllSaloon = async (req, res, next) => {
   try {
-    console.log(req.query.limit, "helooyy22");
     const saloon = await Saloon.find().limit(req.query.limit);
     res.status(200).json(saloon);
   } catch (err) {
@@ -150,7 +141,6 @@ const countByCity = async (req, res, next) => {
 
 const getSlots = async (req, res, next) => {
   try {
-    console.log("slots are getting ok");
     const saloon = await Saloon.findById(req.params.id);
     const list = await Promise.all(
       saloon.slot.map((slo) => {
@@ -165,7 +155,6 @@ const getSlots = async (req, res, next) => {
 
 const getAllSaloons = async (req, res, next) => {
   try {
-    console.log(req.query.limit, "helooyy22");
     const saloon = await Saloon.find()
       .skip((req.query.page - 1) * req.query.limit)
       .limit(req.query.limit);

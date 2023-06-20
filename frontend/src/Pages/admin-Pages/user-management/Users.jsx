@@ -30,10 +30,7 @@ const Users = () => {
                     <UserTable users1={users} setUsers={setUsers} />
                     <div className='page'><Pagination currentPag={pageNo} onPageChange={setPageNo} length={users.length} /></div>
                 </div>
-
-
             </div>
-
         </div>
     )
 }

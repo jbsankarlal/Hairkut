@@ -45,7 +45,6 @@ export default function BookingTable() {
     async function fetchData() {
         try {
             const response = await axios(`${baseURL}/users/get-all-bookings?page=${pageNo}&limit=8`);
-            console.log(response, "response");
             setBooking(response.data);
         } catch (error) {
             console.error(error);
@@ -54,7 +53,6 @@ export default function BookingTable() {
 
     useEffect(() => {
         fetchData();
-        console.log("oooooooooooooooooooooooooooooho kan");
     }, [pageNo]);
 
 

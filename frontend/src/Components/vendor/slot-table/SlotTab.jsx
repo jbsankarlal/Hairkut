@@ -17,11 +17,9 @@ const ServiceTab = () => {
 
     const fetchData = () => {
         axios.get(`${baseURL}/slots/get-slots?id=${user._id}`).then((res) => {
-            console.log(res, "data adaaaaaaaaaaaaaaaaaaaa");
             setSlots(res.data)
         })
     }
-
 
     const handleDelete = (id) => {
         axios.delete(`${baseURL}/slots/${id}`).then((res) => {

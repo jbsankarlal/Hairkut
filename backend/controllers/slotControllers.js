@@ -5,7 +5,6 @@ const createError = require("http-errors");
 const createSlot = async (req, res, next) => {
   const saloonId = req.body.saloonID;
   const newSlot = new Slot(req.body);
-  console.log("comingg");
   try {
     const savedSlot = await newSlot.save();
     try {

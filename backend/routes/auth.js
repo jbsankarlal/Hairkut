@@ -7,7 +7,7 @@ router.post("/register", register);
 router.post("/login", login);
 router.post("/admin-login", (req, res) => {
   const { email, password } = req.body;
-  if (email == "shan@gmail.com" && password == "1234") {
+  if (email == "admin@gmail.com" && password == "1234") {
     return res.status(200).send("success");
   }
   return res.status(400).send("wrong credentials");

@@ -11,7 +11,6 @@ const ServiceTab = () => {
 
     const { user } = useContext(AdminAuthContext)
     axios.get(`${baseURL}/service/get-services?id=${user._id}`).then((res) => {
-        console.log(res, "data adaaaaaaaaaaaaaaaaaaaa");
         setServices(res.data)
     })
 

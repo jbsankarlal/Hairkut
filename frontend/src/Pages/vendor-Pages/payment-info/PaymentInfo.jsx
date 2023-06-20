@@ -16,7 +16,6 @@ const PaymentInfo = () => {
                     </div>
                 </div>
             </ div>
-
         </div>
     )
 }

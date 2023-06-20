@@ -21,7 +21,6 @@ const Stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const router = express.Router();
 
 router.post("/get-report", async (req, res) => {
-  console.log(req.body, "bodyyyyyyyyyyyyyyyyyy");
   try {
     const data = await Booking.aggregate([
       {
@@ -64,7 +63,6 @@ router.post("/get-report", async (req, res) => {
 router.get("/get-bookings/:username", async (req, res) => {
   try {
     const data = await Booking.find({ name: req.params.username });
-    console.log(data, "data---");
     res.send(data);
   } catch (error) {
     res.send(error);
@@ -81,7 +79,6 @@ router.get("/get-all-bookings/:saloon", async (req, res) => {
 });
 
 router.get("/get-all-bookings", async (req, res) => {
-  console.log("got bookined");
   try {
     const data = await Booking.find()
       .skip((req.query.page - 1) * req.query.limit)

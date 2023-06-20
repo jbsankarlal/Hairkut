@@ -33,12 +33,9 @@ const Login = () => {
         }
     };
 
-    console.log(user, "-------------user");
-
     return (
         <div className='containLogin'>
             <>
-
                 <div className="wrapper1">
                     <div className="title">USER LOGIN</div>
                     <form action="#">

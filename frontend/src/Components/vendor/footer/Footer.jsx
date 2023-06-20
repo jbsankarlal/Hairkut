@@ -46,9 +46,7 @@ const Footer = () => {
                     <li className="fListItem">Bridal Makeups</li>
                 </ul>
             </div>
-
         </div>
     )
 }
-
 export default Footer

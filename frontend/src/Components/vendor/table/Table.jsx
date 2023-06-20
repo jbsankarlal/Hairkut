@@ -18,9 +18,6 @@ function createData(name, saloonName, date, service, status) {
     return { name, saloonName, date, service, status };
 }
 
-
-
-
 const makeStyle = (date) => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -47,8 +44,6 @@ export default function BasicTable() {
     const [data, setData] = useState([])
 
     const { user } = useContext(AdminAuthContext)
-    console.log(user, "lololol");
-
 
     useEffect(() => {
         fetchData()
@@ -115,5 +110,5 @@ export default function BasicTable() {
                 </Table>
             </TableContainer>
         </div>
-    );
+    )
 }
