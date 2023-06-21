@@ -1,80 +1,90 @@
 const User = require("../models/userModel");
-const createError = require('http-errors');
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken');
+const createError = require("http-errors");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const Saloon = require("../models/saloonModel");
 
-const register = async(req,res,next)=>{
-try {
-   
-var salt = bcrypt.genSaltSync(10);
-var hash = bcrypt.hashSync(req.body.password, salt);
-
+const register = async (req, res, next) => {
+  try {
+    var salt = bcrypt.genSaltSync(10);
+    var hash = bcrypt.hashSync(req.body.password, salt);
 
     const newUser = new User({
-        username:req.body.username,
-        email:req.body.email,
-        mobile:req.body.mobile,
-        password:hash,
-        gender:req.body.gender
-    })
+      username: req.body.username,
+      email: req.body.email,
+      mobile: req.body.mobile,
+      password: hash,
+      gender: req.body.gender,
+    });
 
     await newUser.save();
-    res.status(200).send("User has been created")
+    res.status(200).send("User has been created");
+  } catch (err) {
+    next(err);
+  }
+};
 
-} catch (err) {
-    next(err)
-}
-}
+const login = async (req, res, next) => {
+  console.log("log called");
+  try {
+    const user = await User.findOne({ username: req.body.username });
+    if (!user) return next(createError(404, "User not found!"));
 
+    const isPasswordCorrect = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!isPasswordCorrect)
+      return next(createError(400, "Incorrect Username or Password"));
 
-const login = async(req,res,next)=>{
-    console.log('log called');
-try {
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin, isVendor: user.isVendor },
+      "sankarJBlal"
+    );
 
-    const user = await User.findOne({username:req.body.username})
-    if(!user) return next(createError(404,"User not found!"))
+    const { password, isAdmin, isVendor, ...otherInfo } = user._doc;
+    console.log(user._doc, "user._doc");
 
-    const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
-if(!isPasswordCorrect) return next(createError(400,"Incorrect Username or Password"))
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+      })
+      .status(200)
+      .send({ ...otherInfo });
+  } catch (err) {
+    next(err);
+  }
+};
 
-const token = jwt.sign({id:user._id, isAdmin: user.isAdmin, isVendor: user.isVendor }, process.env.JWT)
+const vendorLogin = async (req, res, next) => {
+  try {
+    const user = await Saloon.findOne({ email: req.body.email });
+    if (!user) return res.status(404).send("user not found");
 
-const {password, isAdmin, isVendor, ...otherInfo} = user._doc;
-console.log(user._doc,"user._doc");
+    const isPasswordCorrect = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!isPasswordCorrect)
+      return res.status(400).send("Incorrect Username or Password");
 
-    res.cookie("access_token",token,{
-        httpOnly:true
-    }).status(200).send({...otherInfo})
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin, isVendor: user.isVendor },
+      "sankarJBlal"
+    );
 
-} catch (err) {
-    next(err)
-}
-}
+    const { password, isAdmin, isVendor, ...otherInfo } = user._doc;
+    console.log(user._doc, "user._doc");
 
+    res
+      .cookie("access_token", token, {
+        httpOnly: true,
+      })
+      .status(200)
+      .send({ ...otherInfo });
+  } catch (err) {
+    next(err);
+  }
+};
 
-const vendorLogin = async(req,res,next)=>{
-try {
-
-    const user = await Saloon.findOne({email:req.body.email})
-    if(!user) return res.status(404).send("user not found")
-
-    const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password)
-if(!isPasswordCorrect) return res.status(400).send("Incorrect Username or Password")
-
-const token = jwt.sign({id:user._id, isAdmin: user.isAdmin, isVendor: user.isVendor }, process.env.JWT)
-
-const {password, isAdmin, isVendor, ...otherInfo} = user._doc;
-console.log(user._doc,"user._doc");
-
-    res.cookie("access_token",token,{
-        httpOnly:true
-    }).status(200).send({...otherInfo})
-
-} catch (err) {
-    next(err)
-    
-}
-}
-
-module.exports = {register,login, vendorLogin};
+module.exports = { register, login, vendorLogin };
