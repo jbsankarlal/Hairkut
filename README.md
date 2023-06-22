@@ -1,4 +1,4 @@
-Hairkut.co
+#Hairkut.co
 
 Hairkut.co is a web application that allows users to book slots for haircutting services. It provides a seamless experience for users, vendors, and admins to manage appointments and ensure a smooth haircutting process. This application built using the MERN stack (MongoDB, Express, React, Node.js). It provides a dynamic and intuitive platform to get a personal care service without wasting our time.
 
